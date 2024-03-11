@@ -178,7 +178,7 @@ public class funciones {
             if (json.has(usuario)) {
             // Si el usuario existe pero la contraseña es incorrecta, pedir la contraseña de nuevo
                 while (!json.getString(usuario).equals(contrasena)) {
-                    System.out.print("Contrase�a incorrecta. Intentalo de nuevo: ");
+                    System.out.print("Contrasena incorrecta. Intentalo de nuevo: ");
                     contrasena = leerDatos.leerString();
                 }
             } else {
