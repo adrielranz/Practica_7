@@ -22,7 +22,7 @@ public class funciones {
         String operacion = num1 + " + " + num2 + " = " + resultado + " (Realizado en: " + dtf.format(now) + ")";
         System.out.println("El resultado de la suma es: " + resultado);
         String nombreArchivoHistorial = usuario + "_operaciones.txt";
-        String rutaArchivoHistorial = "./almacenamiento/" + nombreArchivoHistorial;
+        String rutaArchivoHistorial = "./operaciones/" + nombreArchivoHistorial; //almacenamiento
         guardarHistorialPersonal(rutaArchivoHistorial, operacion);
     }
 
@@ -37,7 +37,7 @@ public class funciones {
         String operacion = num1 + " - " + num2 + " = " + resultado + " (Realizado en: " + dtf.format(now) + ")";
         System.out.println("El resultado de la resta es: " + resultado);
         String nombreArchivoHistorial = usuario + "_operaciones.txt";
-        String rutaArchivoHistorial = "./almacenamiento/" + nombreArchivoHistorial;
+        String rutaArchivoHistorial = "./operaciones/" + nombreArchivoHistorial;
         guardarHistorialPersonal(rutaArchivoHistorial, operacion);
     }
 
@@ -52,7 +52,7 @@ public class funciones {
         String operacion = num1 + " * " + num2 + " = " + resultado + " (Realizado en: " + dtf.format(now) + ")";
         System.out.println("El resultado de la multiplicacion es: " + resultado);
         String nombreArchivoHistorial = usuario + "_operaciones.txt";
-        String rutaArchivoHistorial = "./almacenamiento/" + nombreArchivoHistorial;
+        String rutaArchivoHistorial = "./operaciones/" + nombreArchivoHistorial;
         guardarHistorialPersonal(rutaArchivoHistorial, operacion);
     }
 
@@ -69,7 +69,7 @@ public class funciones {
             String operacion = num1 + " / " + num2 + " = " + resultado + " (Realizado en: " + dtf.format(now) + ")";
             System.out.println("El resultado de la division es: " + resultado);
             String nombreArchivoHistorial = usuario + "_operaciones.txt";
-            String rutaArchivoHistorial = "./almacenamiento/" + nombreArchivoHistorial;
+            String rutaArchivoHistorial = "./operaciones/" + nombreArchivoHistorial;
             guardarHistorialPersonal(rutaArchivoHistorial, operacion);
         } catch (ArithmeticException e) {
             System.out.print("No se puede dividir entre 0");
@@ -93,7 +93,7 @@ public class funciones {
             String operacion = "sqrt(" + num1 + ") = " + resultado + " (Realizado en: " + dtf.format(now) + ")";
             System.out.println("El resultado de la raiz cuadrada es: " + resultado);
             String nombreArchivoHistorial = usuario + "_operaciones.txt";
-            String rutaArchivoHistorial = "./almacenamiento/" + nombreArchivoHistorial;
+            String rutaArchivoHistorial = "./operaciones/" + nombreArchivoHistorial;
             guardarHistorialPersonal(rutaArchivoHistorial, operacion);
         } catch (ArithmeticException e) {
             System.out.println("No se puede calcular la raiz cuadrada de un numero negativo");
@@ -115,7 +115,7 @@ public class funciones {
         String operacion = num1 + "^" + num2 + " = " + resultado + " (Realizado en: " + dtf.format(now) + ")";
         System.out.println("El resultado de la potencia es: " + resultado);
         String nombreArchivoHistorial = usuario + "_operaciones.txt";
-        String rutaArchivoHistorial = "./almacenamiento/" + nombreArchivoHistorial;
+        String rutaArchivoHistorial = "./operaciones/" + nombreArchivoHistorial;
         guardarHistorialPersonal(rutaArchivoHistorial, operacion);
     }
 
@@ -123,7 +123,7 @@ public class funciones {
     public static void mostrarHistorial(String usuario){
         try {
             String nombreArchivoHistorial = usuario + "_operaciones.txt";
-            String rutaArchivoHistorial = "./almacenamiento/" + nombreArchivoHistorial;
+            String rutaArchivoHistorial = "./operaciones/" + nombreArchivoHistorial;
 
             Scanner scanner = new Scanner(new File(rutaArchivoHistorial));
 
@@ -139,7 +139,7 @@ public class funciones {
 
     //REGISTRO DE USUARIOS
     public static void buscarOcrearArchivo() {
-        String ruta = "./almacenamiento/usuarios.json";
+        String ruta = "./operaciones/usuarios.json";
 
         if (Files.exists(Paths.get(ruta))) {
             System.out.println("El archivo existe");
@@ -157,13 +157,13 @@ public class funciones {
     }
 
     public static void crearCarpeta() {
-        String ruta = "./almacenamiento";
+        String ruta = "./operaciones";
         File directorio = new File(ruta);
         directorio.mkdir();
     }
 
     public static void leerOcrearUsuarios(String usuario, String contrasena) {
-        String rutaJson = "./almacenamiento/usuarios.json";
+        String rutaJson = "./operaciones/usuarios.json";
         try {
             File file = new File(rutaJson);
             if (file.length() == 0) {
@@ -178,7 +178,7 @@ public class funciones {
             if (json.has(usuario)) {
             // Si el usuario existe pero la contraseña es incorrecta, pedir la contraseña de nuevo
                 while (!json.getString(usuario).equals(contrasena)) {
-                    System.out.print("Contraseña incorrecta. Inténtalo de nuevo: ");
+                    System.out.print("Contrase�a incorrecta. Intentalo de nuevo: ");
                     contrasena = leerDatos.leerString();
                 }
             } else {
@@ -191,7 +191,7 @@ public class funciones {
 
             // Escribir en el archivo de historial
             String nombreArchivoHistorial = usuario + "_operaciones.txt";
-            String rutaArchivoHistorial = "./almacenamiento/" + nombreArchivoHistorial;
+            String rutaArchivoHistorial = "./operaciones/" + nombreArchivoHistorial;
             FileWriter writerHistorial = new FileWriter(rutaArchivoHistorial, true);
             writerHistorial.close();
 

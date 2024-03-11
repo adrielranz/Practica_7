@@ -7,7 +7,7 @@ public class Practica_7 {
 
         System.out.print("Ingrese su usuario: ");
         String usuario = leerDatos.leerString();
-        System.out.print("Ingrese su contraseÃ±a: ");
+        System.out.print("Ingrese su contraseña: ");
         String contrasena = leerDatos.leerString();
 
         funciones.leerOcrearUsuarios(usuario, contrasena);
@@ -27,7 +27,7 @@ public class Practica_7 {
         System.out.println("7. Historial de operaciones");
         System.out.println("8. Salir");
         System.out.println();
-        System.out.print("Que operaciÃ³n quieres hacer: ");
+        System.out.print("Que operación quieres hacer: ");
         int eleccion = leerDatos.leerInt();
 
         if(eleccion == 1){
